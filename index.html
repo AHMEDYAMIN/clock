@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Orbitron" />
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+    <div class ="clock">
+        <h1 class="font"></h1>
+        <span id="hours">12</span>
+        <span>:</span>
+        <span id="minutes">60</span>
+        <span>:</span>
+        <span id="seconds">60</span>
+        <span id="am-or-pm">AM</span>
+        </h1>
+    </div>
+</div>
+<script>
+    function updatetime(){
+        var datetime = new Date();
+        var hours = datetime.getHours();
+        var minutes = datetime.getMinutes();
+        var seconds = datetime.getSeconds();
+        var am_or_pm = document.getElementById("am-or-pm")
+        if (hours >= 12){
+            am_or_pm.innerHTML = "PM";
+
+        }
+        else{
+            am_or_pm.innerHTML = "AM";
+
+        }
+        if(hours > 12){
+            hours = hours - 12 ;
+        }
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+    }
+    setInterval(updatetime ,1000);
+
+    
+</script>
+
+</body>
+</html>
